@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+   <record id="inherit_view_order_form_id_inherit_module_sale" model="ir.ui.view">
+    <field name="name">sale.order.view.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="bisnis_model" />
+      </xpath>
+    </field>
+   </record>
+
+  <!-- objective 3 -->
+   <record id="inherit_sale_order_view_search_inherit_quotation_id_inherit_module_sale" model="ir.ui.view">
+    <field name="name">sale.order.view.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+    <field name="arch" type="xml">
+      <xpath expr="//filter[@name='my_quotation']" position="after">
+        <group string="Group By">
+          <filter name="bisnis_model" string="Bisnis Model" context="{'group_by': 'bisnis_model'}"/>
+        </group>
+      </xpath>
+    </field>
+   </record>
+
+   <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+    <field name="res_model">sale.order</field>
+    <field name="context">{'search_default_bisnis_model': 1}</field>
+   </record>
+
+
+  </data>
+</odoo>

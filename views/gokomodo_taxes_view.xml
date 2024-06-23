@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="inherit_view_tax_form_id_inherit_module_account" model="ir.ui.view">
+            <field name="name">account.tax.view.form.inherit</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type_tax_use']" position="after">
+                    <field name="taxes_gokomodo" />
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+    
+
+</odoo>
